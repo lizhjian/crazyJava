@@ -13,6 +13,14 @@ import java.util.Set;
  * date ：2020-06-05 13:08
  * </pre>
  */
+
+/**
+ * 1.加载配置文件读取key-value
+ * 2.将value实例化对应的实体
+ * 3.拼setTitle字符串
+ * 4.根据setTitle字符串找到对应的setTitle的方法
+ * 5.取出a对应的实例 及a%setitle对应的value 调用setTitle.invoke(a, value)
+ */
 public class ExtendedObjectPoolFactory {
 
     private Map<String, Object> objectPoool = new HashMap<>();
@@ -26,8 +34,6 @@ public class ExtendedObjectPoolFactory {
     public void initPool(String fileName) throws  Exception{
         try {
             FileInputStream fis = new FileInputStream(fileName);
-
-            //Properties props = new Properties();
 
             config.load(fis);
 
